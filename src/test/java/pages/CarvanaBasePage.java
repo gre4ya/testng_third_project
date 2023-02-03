@@ -26,6 +26,8 @@ public class CarvanaBasePage {
     public WebElement passwordInput;
     @FindBy(css = "div[class*='7-XzW'] p")
     public WebElement errorMessage;
+    @FindBy(xpath = "//a[text()='Search Cars']")
+    public WebElement searchCarsButton;
 
 
 
