@@ -16,9 +16,9 @@ public class Driver {
     private Driver(){}
 
     public static WebDriver getDriver() {
-        String browser = ConfigReader.getProperties("browser");
+        String browser = ConfigReader.getProperty("browser");
 
-        if(driver != null){
+        if(driver == null){
             switch (browser.toLowerCase()){
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
@@ -41,7 +41,7 @@ public class Driver {
 
             }
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.getProperties("implicitWait")), TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Long.parseLong(ConfigReader.getProperty("implicitWait")), TimeUnit.SECONDS);
         }
         return driver;
     }

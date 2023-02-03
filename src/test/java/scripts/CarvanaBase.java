@@ -15,8 +15,8 @@ public class CarvanaBase {
 
     @BeforeMethod
     public void setup(){
-        Driver.quitDriver();
-        driver.get(ConfigReader.getProperties("appURL"));
+        driver = Driver.getDriver();
+        driver.get(ConfigReader.getProperty("appURL"));
         carvanaBasePage = new CarvanaBasePage();
     }
 
