@@ -10,6 +10,18 @@ public class CarvanaSearchCarsPage extends CarvanaBasePage{
 
     @FindBy(css = "div[class*='qjQqb'] button")
     public List<WebElement> filterOptionsHeaders;
+    @FindBy(css = "input[class*='input']")
+    public WebElement searchInput;
+    @FindBy(css = "button[class*='iPPBRN']")
+    public WebElement goButton;
+    @FindBy(css = "div[data-test='ResultTile']")
+    public List<WebElement> resultTiles;
+
+
+
+
+
+
 
 
 

@@ -145,7 +145,12 @@ public class CarvanaHomePageTest extends CarvanaBase{
      6. Down Payment information - text should be displayed and should not be null or empty
      7. Delivery chip must be displayed, and text is not null or empty
      */
+    @Test(priority = 6, description = "Validate the search result tiles")
+    public void validateSearchResultTiles(){
+        carvanaBasePage.searchCarsButton.click();
+        WindowHandler.switchToChildWindow();
 
+    }
 
 
 }
