@@ -16,6 +16,19 @@ public class CarvanaBasePage {
     public WebElement aboutCarvanaDropdown;
     @FindBy(css = "a[class*='iXAdzc']")
     public WebElement supportAndContactDropdown;
+    @FindBy(css = "a[data-cv-test='headerSignInLink']")
+    public WebElement signInButton;
+    @FindBy(id = "email")
+    public WebElement emailInput;
+    @FindBy(css = "button[class*='d4d6f']")
+    public WebElement continueAndSigninButton;
+    @FindBy(id = "password")
+    public WebElement passwordInput;
+    @FindBy(css = "div[class*='7-XzW'] p")
+    public WebElement errorMessage;
+
+
+
 
 
     //div[class*='MenuTitle']

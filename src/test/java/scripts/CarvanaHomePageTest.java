@@ -35,7 +35,16 @@ public class CarvanaHomePageTest extends CarvanaBase{
         Assert.assertEquals(carvanaBasePage.supportAndContactDropdown.getText(),
                 "SUPPORT & CONTACT");
     }
-
-
+    @Test(priority = 4, description = "Validate the sign in error message")
+    public void ValidateSignInErrorMessage(){
+        carvanaBasePage.signInButton.click();
+        carvanaBasePage.emailInput.sendKeys("johndoe@gmail.com");
+        carvanaBasePage.continueAndSigninButton.click();
+        carvanaBasePage.passwordInput.sendKeys("abcd1234");
+        carvanaBasePage.continueAndSigninButton.click();
+        Assert.assertTrue(carvanaBasePage.errorMessage.isDisplayed());
+        Assert.assertEquals(carvanaBasePage.errorMessage.getText(),
+                "Email address and/or password combination is incorrect.");
+    }
 
 }
