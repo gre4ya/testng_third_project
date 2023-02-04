@@ -20,4 +20,9 @@ public class Waiter {
     public static void waitURLToContainFraction(int seconds, String fraction){
         new WebDriverWait(Driver.getDriver(), seconds).until(ExpectedConditions.urlContains(fraction));
     }
+    public static void waitUntilElementClickable(int seconds, WebElement element){
+        new WebDriverWait(Driver.getDriver(), seconds).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+
 }

@@ -17,25 +17,29 @@ public class CarvanaSearchCarsPage extends CarvanaBasePage{
     @FindBy(css = "div[data-test='ResultTile']")
     public List<WebElement> resultTiles;
     @FindBy(css = "div[data-test='ResultTile'] picture")
-    public WebElement imageTile;
+    public List<WebElement> imageTile;
     @FindBy(css = "div[class='favorite-vehicle']")
-    public WebElement favButtonTile;
+    public List<WebElement> favButtonTile;
     @FindBy(css = "div[class*='inventory-type-variant']")
-    public WebElement inventoryTypeTile;
+    public List<WebElement> inventoryTypeTile;
     @FindBy(css = "div[class='year-make']")
-    public WebElement yearMakeModelTile;
+    public List<WebElement> yearMakeModelTile;
     @FindBy(css = "div[class='trim-mileage']")
-    public WebElement trimMileageTile;
+    public List<WebElement> trimMileageTile;
     @FindBy(css = "div[data-testid='price']")
-    public WebElement priceTile;
+    public List<WebElement> priceTile;
     @FindBy(css = ".monthly-payment")
-    public WebElement monthlyPaymentTile;
+    public List<WebElement> monthlyPaymentTile;
     @FindBy(css = ".down-payment")
-    public WebElement downPaymentTile;
+    public List<WebElement> downPaymentTile;
     @FindBy(css = "div[class='tk-pane full-width']:nth-child(2)")
-    public WebElement deliveryChipTile;
-    @FindBy(xpath = "//button[text()='Next']")
+    public List<WebElement> deliveryChipTile;
+    //@FindBy(xpath = "//button[text()='Next']")
+    @FindBy(css = "#pagination li:nth-child(3) button:nth-child(1)")
     public WebElement nextButton;
+
+    @FindBy(css = "svg[class*='llqIcd']")
+    public WebElement closeButton;
 
 
 
