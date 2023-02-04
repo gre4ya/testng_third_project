@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression">
+    <test name="All Tests">
+        <classes>
+            <class name="scripts.CarvanaHomePageTest">
+                <methods>
+                    <include name="validateTitleAndURL"/>
+                    <include name="validateLogo"/>
+                    <include name="validateMainSectionNavigationItems"/>
+                    <include name="ValidateSignInErrorMessage"/>
+                    <include name="validateFilterOptions"/>
+                    <include name="validateSearchResultTiles"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

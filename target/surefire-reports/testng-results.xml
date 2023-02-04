@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Regression" duration-ms="66591" started-at="2023-02-04T15:30:10 CST" finished-at="2023-02-04T15:31:16 CST">
+    <groups>
+    </groups>
+    <test name="All Tests" duration-ms="66591" started-at="2023-02-04T15:30:10 CST" finished-at="2023-02-04T15:31:16 CST">
+      <class name="scripts.CarvanaHomePageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="8192" started-at="2023-02-04T15:30:10 CST" finished-at="2023-02-04T15:30:18 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="10" started-at="2023-02-04T15:30:18 CST" finished-at="2023-02-04T15:30:18 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="validateTitleAndURL()[pri:1, instance:scripts.CarvanaHomePageTest@685cb137]" name="validateTitleAndURL" duration-ms="269" started-at="2023-02-04T15:30:18 CST" description="Validate Carvana home page title and url" finished-at="2023-02-04T15:30:18 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateTitleAndURL -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="566" started-at="2023-02-04T15:30:18 CST" finished-at="2023-02-04T15:30:19 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="5922" started-at="2023-02-04T15:30:19 CST" finished-at="2023-02-04T15:30:25 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="3" started-at="2023-02-04T15:30:25 CST" finished-at="2023-02-04T15:30:25 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="validateLogo()[pri:2, instance:scripts.CarvanaHomePageTest@685cb137]" name="validateLogo" duration-ms="215" started-at="2023-02-04T15:30:25 CST" description="Validate the Carvana logo" finished-at="2023-02-04T15:30:25 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateLogo -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="538" started-at="2023-02-04T15:30:25 CST" finished-at="2023-02-04T15:30:25 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="4250" started-at="2023-02-04T15:30:25 CST" finished-at="2023-02-04T15:30:30 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="2" started-at="2023-02-04T15:30:30 CST" finished-at="2023-02-04T15:30:30 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="validateMainSectionNavigationItems()[pri:3, instance:scripts.CarvanaHomePageTest@685cb137]" name="validateMainSectionNavigationItems" duration-ms="1418" started-at="2023-02-04T15:30:30 CST" description="Validate the main navigation section items" finished-at="2023-02-04T15:30:31 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateMainSectionNavigationItems -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="403" started-at="2023-02-04T15:30:31 CST" finished-at="2023-02-04T15:30:31 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="6322" started-at="2023-02-04T15:30:31 CST" finished-at="2023-02-04T15:30:38 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="5" started-at="2023-02-04T15:30:38 CST" finished-at="2023-02-04T15:30:38 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="ValidateSignInErrorMessage()[pri:4, instance:scripts.CarvanaHomePageTest@685cb137]" name="ValidateSignInErrorMessage" duration-ms="2181" started-at="2023-02-04T15:30:38 CST" description="Validate the sign in error message" finished-at="2023-02-04T15:30:40 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValidateSignInErrorMessage -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="385" started-at="2023-02-04T15:30:40 CST" finished-at="2023-02-04T15:30:40 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="6020" started-at="2023-02-04T15:30:40 CST" finished-at="2023-02-04T15:30:46 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="3" started-at="2023-02-04T15:30:46 CST" finished-at="2023-02-04T15:30:46 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="validateFilterOptions()[pri:5, instance:scripts.CarvanaHomePageTest@685cb137]" name="validateFilterOptions" duration-ms="6417" started-at="2023-02-04T15:30:46 CST" description="Validate the search filter options and search button" finished-at="2023-02-04T15:30:53 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateFilterOptions -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="346" started-at="2023-02-04T15:30:53 CST" finished-at="2023-02-04T15:30:53 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setup" is-config="true" duration-ms="5576" started-at="2023-02-04T15:30:53 CST" finished-at="2023-02-04T15:30:59 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="setPage()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="setPage" is-config="true" duration-ms="1" started-at="2023-02-04T15:30:59 CST" finished-at="2023-02-04T15:30:59 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setPage -->
+        <test-method status="PASS" signature="validateSearchResultTiles()[pri:6, instance:scripts.CarvanaHomePageTest@685cb137]" name="validateSearchResultTiles" duration-ms="17031" started-at="2023-02-04T15:30:59 CST" description="Validate the search result tiles" finished-at="2023-02-04T15:31:16 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateSearchResultTiles -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.CarvanaHomePageTest@685cb137]" name="teardown" is-config="true" duration-ms="473" started-at="2023-02-04T15:31:16 CST" finished-at="2023-02-04T15:31:16 CST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- scripts.CarvanaHomePageTest -->
+    </test> <!-- All Tests -->
+  </suite> <!-- Regression -->
+</testng-results>
