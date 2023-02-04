@@ -1,5 +1,7 @@
 package scripts;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -7,6 +9,7 @@ import pages.CarvanaBasePage;
 import pages.CarvanaSearchCarsPage;
 import test_data.TestData;
 import utilities.Driver;
+import utilities.Waiter;
 import utilities.WindowHandler;
 
 import java.util.stream.IntStream;
@@ -145,11 +148,52 @@ public class CarvanaHomePageTest extends CarvanaBase{
      6. Down Payment information - text should be displayed and should not be null or empty
      7. Delivery chip must be displayed, and text is not null or empty
      */
+
     @Test(priority = 6, description = "Validate the search result tiles")
     public void validateSearchResultTiles(){
         carvanaBasePage.searchCarsButton.click();
         WindowHandler.switchToChildWindow();
+        carvanaSearchCarsPage.searchInput.sendKeys("mercedes-benz");
+        carvanaSearchCarsPage.goButton.click();
+        Waiter.waitURLToContainFraction( 10, "mercedes-benz");
+        Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
 
+        while (carvanaSearchCarsPage.nextButton.isEnabled()) {
+            Waiter.pause(2);
+
+            IntStream.range(0, carvanaSearchCarsPage.resultTiles.size()).forEach(i -> {
+                Assert.assertTrue(carvanaSearchCarsPage.imageTile.isDisplayed());
+                Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.isDisplayed());
+                Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.isEnabled());
+
+                Assert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.getText().isEmpty());
+
+                Assert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.getText().isEmpty());
+
+                Assert.assertTrue(carvanaSearchCarsPage.trimMileageTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.trimMileageTile.getText().isEmpty());
+
+                Assert.assertTrue(carvanaSearchCarsPage.priceTile.isDisplayed());
+
+                Assert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.getText().replaceAll("[^0-9]", "")) > 0);
+
+                Assert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.getText().isEmpty());
+
+                Assert.assertTrue(carvanaSearchCarsPage.downPaymentTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.downPaymentTile.getText().isEmpty());
+
+                Assert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.isDisplayed());
+                Assert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.getText().isEmpty());
+
+
+            });
+
+            carvanaSearchCarsPage.nextButton.click();
+            Waiter.pause(2);
+        }
     }
 
 
