@@ -152,82 +152,109 @@ public class CarvanaHomePageTest extends CarvanaBase{
      6. Down Payment information - text should be displayed and should not be null or empty
      7. Delivery chip must be displayed, and text is not null or empty
      */
+/*
+    public void getTile(int i){
+        Assert.assertTrue(carvanaSearchCarsPage.imageTile.get(i).isDisplayed());
+
+        System.out.println("image - " + carvanaSearchCarsPage.imageTile.get(i));
+
+        Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isDisplayed());
+
+        System.out.println("favButton - " + carvanaSearchCarsPage.favButtonTile.get(i));
+
+        Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isEnabled());
+        Assert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.get(i).isDisplayed());
+
+        System.out.println("inventoryTypeTile - " + carvanaSearchCarsPage.inventoryTypeTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.get(i).getText().isEmpty());
+
+        Assert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.get(i).isDisplayed());
+
+        System.out.println("yearMakeModelTile - " + carvanaSearchCarsPage.yearMakeModelTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.get(i).getText().isEmpty());
+
+        Assert.assertTrue(carvanaSearchCarsPage.trimMileageTile.get(i).isDisplayed());
+
+        System.out.println("trimMileageTile - " + carvanaSearchCarsPage.trimMileageTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.trimMileageTile.get(i).getText().isEmpty());
+
+        Assert.assertTrue(carvanaSearchCarsPage.priceTile.get(i).isDisplayed());
+
+        System.out.println("priceTile - " + carvanaSearchCarsPage.priceTile.get(i).getText());
+
+        Assert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.get(i).getText().replaceAll("[^0-9]", "")) > 0);
+
+        Assert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.get(i).isDisplayed());
+
+        System.out.println("monthlyPaymentTile - " + carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText().isEmpty());
+
+        Assert.assertTrue(carvanaSearchCarsPage.downPaymentTile.get(i).isDisplayed());
+
+        System.out.println("downPaymentTile - " + carvanaSearchCarsPage.downPaymentTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.downPaymentTile.get(i).getText().isEmpty());
+
+        Assert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.get(i).isDisplayed());
+
+        System.out.println("deliveryChipTile - " + carvanaSearchCarsPage.deliveryChipTile.get(i).getText());
+
+        Assert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.get(i).getText().isEmpty());
+    }
+ */
 
     @Test(priority = 6, description = "Validate the search result tiles")
     public void validateSearchResultTiles(){
-        Waiter.pause(1);
         carvanaBasePage.searchCarsButton.click();
         WindowHandler.switchToChildWindow();
         carvanaSearchCarsPage.searchInput.sendKeys("mercedes-benz");
         carvanaSearchCarsPage.goButton.click();
-        Waiter.waitURLToContainFraction( 10, "mercedes-benz");
+        Waiter.waitURLToContainFraction( 5, "mercedes-benz");
         Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
         Actions action = new Actions(Driver.getDriver());
 
         int j = 1;
            while (carvanaSearchCarsPage.nextButton.isEnabled()) {
 
-           System.out.println("===========================PAGE - " + j + " ================================");
-           j++;
+               int pageNumber = j;
 
-              IntStream.range(0, carvanaSearchCarsPage.resultTiles.size()).forEach(i -> {
+               IntStream.range(0, carvanaSearchCarsPage.resultTiles.size()).forEach(i -> {
 
-                  System.out.println("=========================TILE - " + (i + 1) + " =================================");
+                  Assert.assertTrue(carvanaSearchCarsPage.imageTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'image\' on " + pageNumber + " page is not displayed");
 
-                  Assert.assertTrue(carvanaSearchCarsPage.imageTile.get(i).isDisplayed());
+                  Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'favorite button\' on " + pageNumber + " page is not displayed");
+                  Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isEnabled(), "Tile " + (i+1) + " \'favorite button\' on " + pageNumber + " page is not enabled");
 
-                  System.out.println("image - " + carvanaSearchCarsPage.imageTile.get(i));
+                  Assert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'inventory type\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.get(i).getText().isEmpty(), "Tile " + (i+1) + " \'inventory type\' field on " + pageNumber + " page is empty");
 
-                  Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isDisplayed());
+                  Assert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'year, make, model\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.get(i).getText().isEmpty(), "Tile " + (i+1) + " \'year, make, model\' field on " + pageNumber + " page is empty");
 
-                  System.out.println("favButton - " + carvanaSearchCarsPage.favButtonTile.get(i));
+                  Assert.assertTrue(carvanaSearchCarsPage.trimMileageTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'trim, mileage\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.trimMileageTile.get(i).getText().isEmpty(),  "Tile " + (i+1) + " \'trim, mileage\' field on " + pageNumber + " page is empty");
 
-                  Assert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isEnabled());
-                  Assert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.get(i).isDisplayed());
+                  Assert.assertTrue(carvanaSearchCarsPage.priceTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'price\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.get(i).getText().replaceAll("[^0-9]", "")) > 0, "Tile " + (i+1) + " \'price\' field on " + pageNumber + " page is less than 1");
 
-                  System.out.println("inventoryTypeTile - " + carvanaSearchCarsPage.inventoryTypeTile.get(i).getText());
+                  Assert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'monthly payment\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText().isEmpty(),  "Tile " + (i+1) + " \'monthly payment\' field on " + pageNumber + " page is empty");
 
-                  Assert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.get(i).getText().isEmpty());
+                  Assert.assertTrue(carvanaSearchCarsPage.downPaymentTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'down payment\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.downPaymentTile.get(i).getText().isEmpty(),  "Tile " + (i+1) + " \'down payment\' field on " + pageNumber + " page is empty");
 
-                  Assert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.get(i).isDisplayed());
-
-                  System.out.println("yearMakeModelTile - " + carvanaSearchCarsPage.yearMakeModelTile.get(i).getText());
-
-                  Assert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.get(i).getText().isEmpty());
-
-                  Assert.assertTrue(carvanaSearchCarsPage.trimMileageTile.get(i).isDisplayed());
-
-                  System.out.println("trimMileageTile - " + carvanaSearchCarsPage.trimMileageTile.get(i).getText());
-
-                  Assert.assertFalse(carvanaSearchCarsPage.trimMileageTile.get(i).getText().isEmpty());
-
-                  Assert.assertTrue(carvanaSearchCarsPage.priceTile.get(i).isDisplayed());
-
-                  System.out.println("priceTile - " + carvanaSearchCarsPage.priceTile.get(i).getText());
-
-                  Assert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.get(i).getText().replaceAll("[^0-9]", "")) > 0);
-
-                  Assert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.get(i).isDisplayed());
-
-                  System.out.println("monthlyPaymentTile - " + carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText());
-
-                  Assert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText().isEmpty());
-
-                  Assert.assertTrue(carvanaSearchCarsPage.downPaymentTile.get(i).isDisplayed());
-
-                  System.out.println("downPaymentTile - " + carvanaSearchCarsPage.downPaymentTile.get(i).getText());
-
-                  Assert.assertFalse(carvanaSearchCarsPage.downPaymentTile.get(i).getText().isEmpty());
-
-                  Assert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.get(i).isDisplayed());
-
-                  System.out.println("deliveryChipTile - " + carvanaSearchCarsPage.deliveryChipTile.get(i).getText());
-
-                  Assert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.get(i).getText().isEmpty());
+                  Assert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.get(i).isDisplayed(), "Tile " + (i+1) + " \'delivery chip\' field on " + pageNumber + " page is not displayed");
+                  Assert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.get(i).getText().isEmpty(),  "Tile " + (i+1) + "\'delivery chip\' field on " + pageNumber + " page is empty");
 
               });
 
                action.moveToElement(carvanaSearchCarsPage.nextButton).click().perform();
+
+               j++;
 
                try{
                    carvanaSearchCarsPage.closeButton.click();
