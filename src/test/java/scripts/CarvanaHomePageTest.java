@@ -155,73 +155,77 @@ public class CarvanaHomePageTest extends CarvanaBase{
      */
 
     @Test(priority = 6, description = "Validate the search result tiles")
-    public void validateSearchResultTiles(){
+    public void validateSearchResultTiles() {
         Waiter.pause(1);
         carvanaBasePage.searchCarsButton.click();
         WindowHandler.switchToChildWindow();
         carvanaSearchCarsPage.searchInput.sendKeys("mercedes-benz");
         carvanaSearchCarsPage.goButton.click();
-        Waiter.waitURLToContainFraction( 5, "mercedes-benz");
+        Waiter.waitURLToContainFraction(5, "mercedes-benz");
         Assert.assertTrue(driver.getCurrentUrl().contains("mercedes-benz"));
-//      Actions action = new Actions(Driver.getDriver());
+        Actions action = new Actions(Driver.getDriver());
         SoftAssert softAssert = new SoftAssert();
-//      while (carvanaSearchCarsPage.nextButton.isEnabled()) {
 
-        int pageNumber = 1;
+        int j = 1;
+        while (carvanaSearchCarsPage.nextButton.isEnabled()) {
 
-        IntStream.range(0, carvanaSearchCarsPage.resultTiles.size()).forEach(i -> {
+            int pageNumber = j;
 
-            softAssert.assertTrue(carvanaSearchCarsPage.imageTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'image\' on page " + pageNumber + " is not displayed");
+            IntStream.range(0, carvanaSearchCarsPage.resultTiles.size()).forEach(i -> {
 
-            softAssert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'favorite button\' on page " + pageNumber + " is not displayed");
-            softAssert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isEnabled(),
-                   "Tile " + (i+1) + " \'favorite button\' on page " + pageNumber + " is not enabled");
+                softAssert.assertTrue(carvanaSearchCarsPage.imageTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'image\' on page " + pageNumber + " is not displayed");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'inventory type\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + " \'inventory type\' field on page " + pageNumber + " is empty");
+                softAssert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'favorite button\' on page " + pageNumber + " is not displayed");
+                softAssert.assertTrue(carvanaSearchCarsPage.favButtonTile.get(i).isEnabled(),
+                        "Tile " + (i + 1) + " \'favorite button\' on page " + pageNumber + " is not enabled");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'year, make, model\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + " \'year, make, model\' field on page " + pageNumber + " is empty");
+                softAssert.assertTrue(carvanaSearchCarsPage.inventoryTypeTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'inventory type\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.inventoryTypeTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + " \'inventory type\' field on page " + pageNumber + " is empty");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.trimMileageTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'trim, mileage\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.trimMileageTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + " \'trim, mileage\' field on page " + pageNumber + " is empty");
+                softAssert.assertTrue(carvanaSearchCarsPage.yearMakeModelTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'year, make, model\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.yearMakeModelTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + " \'year, make, model\' field on page " + pageNumber + " is empty");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.priceTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'price\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.get(i).getText().replaceAll("[^0-9]", "")) > 0,
-                   "Tile " + (i+1) + " \'price\' field on page " + pageNumber + " is less than 1");
+                softAssert.assertTrue(carvanaSearchCarsPage.trimMileageTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'trim, mileage\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.trimMileageTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + " \'trim, mileage\' field on page " + pageNumber + " is empty");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'monthly payment\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + " \'monthly payment\' field on page " + pageNumber + " is empty");
+                softAssert.assertTrue(carvanaSearchCarsPage.priceTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'price\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertTrue(Integer.parseInt(carvanaSearchCarsPage.priceTile.get(i).getText().replaceAll("[^0-9]", "")) > 0,
+                        "Tile " + (i + 1) + " \'price\' field on page " + pageNumber + " is less than 1");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.downPaymentTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'down payment\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.downPaymentTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + " \'down payment\' field on page " + pageNumber + " is empty");
+                softAssert.assertTrue(carvanaSearchCarsPage.monthlyPaymentTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'monthly payment\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.monthlyPaymentTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + " \'monthly payment\' field on page " + pageNumber + " is empty");
 
-            softAssert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.get(i).isDisplayed(),
-                   "Tile " + (i+1) + " \'delivery chip\' field on page " + pageNumber + " is not displayed");
-            softAssert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.get(i).getText().isEmpty(),
-                   "Tile " + (i+1) + "\'delivery chip\' field on page " + pageNumber + " is empty");
-        });
+                softAssert.assertTrue(carvanaSearchCarsPage.downPaymentTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'down payment\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.downPaymentTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + " \'down payment\' field on page " + pageNumber + " is empty");
+
+                softAssert.assertTrue(carvanaSearchCarsPage.deliveryChipTile.get(i).isDisplayed(),
+                        "Tile " + (i + 1) + " \'delivery chip\' field on page " + pageNumber + " is not displayed");
+                softAssert.assertFalse(carvanaSearchCarsPage.deliveryChipTile.get(i).getText().isEmpty(),
+                        "Tile " + (i + 1) + "\'delivery chip\' field on page " + pageNumber + " is empty");
+            });
+
+
+            action.moveToElement(carvanaSearchCarsPage.nextButton).click().perform();
+            j++;
+            try {
+                carvanaSearchCarsPage.closeButton.click();
+            } catch (Exception e) {
+                System.out.println(Arrays.toString(e.getStackTrace()));
+            }
+        }
         softAssert.assertAll();
-//
-//               action.moveToElement(carvanaSearchCarsPage.nextButton).click().perform();
-//               j++;
-//               try {
-//                   carvanaSearchCarsPage.closeButton.click();
-//               } catch (Exception e) {
-//                   System.out.println(Arrays.toString(e.getStackTrace()));
-//               }
     }
 }
